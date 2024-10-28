@@ -59,4 +59,3 @@ class LFSR():
 
             if new_list == cur_list:
                 break
-
