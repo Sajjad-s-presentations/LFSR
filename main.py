@@ -1,6 +1,8 @@
 from LFSR import LFSR
 
-lfsr = LFSR(10, [0, 3, 4, 9])
+lfsr = LFSR(5, [0, 3])
 print(lfsr.getRegister())
-print(lfsr.getTaps())
-print(lfsr.successor(lfsr.getRegister()))
+#lfsr.lfsr()
+
+print(lfsr.successor([1,0,1,0,0]))
+print(lfsr.decrypt([1, 1, 0, 1, 0]))

@@ -25,7 +25,6 @@ class LFSR():
     def successor(self, input_list):
         tap_list = self.taps
         tap_list.reverse()
-        tap_elements = []
 
         new_reg = self.shift(input_list)
         first_index = new_reg[0]
@@ -36,6 +35,28 @@ class LFSR():
 
         return new_reg
 
+    def decrypt(self, input_list):
+        rare = input_list[0]
+        new_list = input_list[1:]
 
+        tap_list = self.taps
+        tap_list.reverse()
 
-        print(tap_elements)
+        for tl in tap_list:
+            rare ^= new_list[tl-1]
+
+        new_list.append(rare)
+
+        return new_list
+
+    def lfsr(self):
+        cur_list = self.register
+        new_list = cur_list
+
+        while True:
+            print(new_list)
+            new_list = self.successor(new_list)
+
+            if new_list == cur_list:
+                break
+
