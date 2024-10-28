@@ -22,16 +22,15 @@ class LFSR():
         cuurr_list = [[input_list[i - j] for i in range(len(input_list))] for j in range(len(input_list))]
         return cuurr_list[1]
 
-    def successor(self):
+    def successor(self, input_list):
         tap_list = self.taps
         tap_list.reverse()
         tap_elements = []
 
-        new_reg = self.shift(self.register)
-        print(new_reg)
+        new_reg = self.shift(input_list)
         first_index = new_reg[0]
         for tl in tap_list:
-            first_index = first_index ^ self.register[tl]
+            first_index = first_index ^ input_list[tl]
 
         new_reg[0] = first_index
 
