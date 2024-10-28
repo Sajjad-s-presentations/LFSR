@@ -26,7 +26,17 @@ class LFSR():
         tap_list = self.taps
         tap_list.reverse()
         tap_elements = []
+
+        new_reg = self.shift(self.register)
+        print(new_reg)
+        first_index = new_reg[0]
         for tl in tap_list:
-            tap_elements.append(self.register[tl])
+            first_index = first_index ^ self.register[tl]
+
+        new_reg[0] = first_index
+
+        return new_reg
+
+
 
         print(tap_elements)
